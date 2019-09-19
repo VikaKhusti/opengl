@@ -1,3 +1,4 @@
+
 #include <GL/gl.h>
 #include <GL/glu.h>
 #include <GL/glut.h>
@@ -6,8 +7,10 @@ void display();
 
 void init()
 {
-    glClearColor(1.0, 1.0, 0.0, 1.0);
+    glClearColor(1.0, 0.0, 0.0, 1.0);
 }
+
+void reshape(int, int);
 
 int main (int argc, char**argv)
 {
@@ -19,6 +22,7 @@ int main (int argc, char**argv)
     glutCreateWindow("My Window");
 
     glutDisplayFunc(display);
+    glutReshapeFunc(reshape);
 
     init();
 
@@ -29,7 +33,37 @@ int main (int argc, char**argv)
 void display()
 {
     glClear(GL_COLOR_BUFFER_BIT);
+    glLoadIdentity();
 
+    glPointSize(10.0);
+
+    //------- draw-------------
+    glBegin(GL_POINTS);
+
+    glVertex2d(5, 5);
+    glVertex2d(-5, -5);
+
+    glEnd();
 
     glFlush();
 }
+
+void reshape(int w, int h)
+{
+    glViewport(0,0, (GLsizei)w, (GLsizei)h);
+    glMatrixMode(GL_PROJECTION);
+    glLoadIdentity();
+    //glOrtho(-10, 10, -10, 10, 10, 10); //last 2 argument ???
+    glOrtho(-5,5, -5,5, 2,12);
+   // gluLookAt( 0,0,5, 0,0,0, 0,1,0 );
+    glMatrixMode(GL_MODELVIEW); //default
+
+
+}
+
+
+
+
+
+
+
