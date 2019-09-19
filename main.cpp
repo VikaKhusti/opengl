@@ -44,6 +44,30 @@ glVertex3f(0.98, 0.98, 0.0);
 
 glEnd();
 
+//------------triangle-----
+glBegin(GL_TRIANGLES);
+glColor3f(0.5, 0.5, 0.0 );
+glVertex3f(-0.8, -0.3, 0.0);
+glVertex3f(-0.6, -0.8, 0.0);
+glVertex3f(-0.4, -0.3, 0.0);
+
+glColor3f(0.5, 0.5, 0.0 );
+glVertex3f(-0.6, 0.8, 0.0);
+glVertex3f(-0.8, 0.3, 0.0);
+glVertex3f(-0.4, 0.3, 0.0);
+glEnd();
+
+//-----------quads----
+glBegin(GL_QUADS);
+      glColor3f (0.5, 0.3, 0.6);
+
+      glVertex3f (0.3, 0.3, 0.0);
+      glVertex3f (0.3, 0.0, 0.0);
+      glVertex3f (0.0, 0.3, 0.0); //wtf???
+      glVertex3f (0.0, 0.0, 0.0);
+
+    glEnd();
+
 glFlush();
 }
 
