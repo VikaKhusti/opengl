@@ -7,12 +7,43 @@ void display ( void )
 glClearColor(0.0,0.0,0.0,0.0);
 glClear(GL_COLOR_BUFFER_BIT);
 glPointSize(5);
+//------------points-------
 glBegin (GL_POINTS);
 
 glColor3f(0.8, 0.5, 0.0 );
-glVertex3f(0.0, 0.0, 0.0); //orange point in center of window
+glVertex3f(0.0, 0.0, 0.0); //orange point in center of the window
+
+GLfloat y = 0.98;
+
+for(int i=0; i < 100; i++)
+{
+ glColor3f(0.8, 0.5, 0.0 ); //drawing a line from points
+ glVertex3f(0.98, y, 0.0);
+ y -= 0.02;
+}
 
 glEnd ();
+//------------lines-------
+//glPointSize(5); dont work for lines
+glLineWidth(5.0);
+glBegin(GL_LINES);
+glColor3f(0.8, 0.5, 0.0 );
+glVertex3f(-0.98, 0.98, 0.0);
+glColor3f(0.8, 0.5, 0.0 );
+glVertex3f(-0.98, -0.98, 0.0);
+
+glColor3f(0.8, 0.5, 0.0 );
+glVertex3f(-0.98, -0.98, 0.0);
+glColor3f(0.8, 0.5, 0.0 );
+glVertex3f(0.98, -0.98, 0.0);
+
+glColor3f(0.8, 0.5, 0.0 );
+glVertex3f(-0.98, 0.98, 0.0);
+glColor3f(0.8, 0.5, 0.0 );
+glVertex3f(0.98, 0.98, 0.0);
+
+glEnd();
+
 glFlush();
 }
 
